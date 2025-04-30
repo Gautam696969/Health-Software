@@ -1,44 +1,48 @@
-import HeroSection from './component/HeroSection/HeroSection.jsx' 
-import FeaturesSection from './component/FeaturesSection/FeaturesSection.jsx'
-import TrustCompliance from './component/TrustCompliance/TrustCompliance.jsx'
-import DashboardDemo from './component/DashboardDemo/DashboardDemo.jsx'
-import Testimonials from './component/Testimonials/Testimonials.jsx'
-import Integrations from './component/Integrations/Integrations.jsx'
-import CTASection from './component/CTASection/CTASection.jsx'
-import UseCases from './component/UseCases/UseCases.jsx'
-import AppPromo from './component/AppPromo/AppPromo.jsx'
-import { useEffect } from 'react';
-import './App.css'
+import React, { lazy, useEffect } from 'react';
+import './App.css';
+
+
+
+
+// Lazy load components
+const Navbar = lazy(() => import('./component/Navbar/Navbar'));
+const HeroSection = lazy(() => import('./component/HeroSection/HeroSection'));
+const FeaturesSection = lazy(() => import('./component/FeaturesSection/FeaturesSection'));
+const TrustCompliance = lazy(() => import('./component/TrustCompliance/TrustCompliance'));
+const DashboardDemo = lazy(() => import('./component/DashboardDemo/DashboardDemo'));
+const Testimonials = lazy(() => import('./component/Testimonials/Testimonials'));
+const Integrations = lazy(() => import('./component/Integrations/Integrations'));
+const CTASection = lazy(() => import('./component/CTASection/CTASection'));
+const UseCases = lazy(() => import('./component/UseCases/UseCases'));
+const AppPromo = lazy(() => import('./component/AppPromo/AppPromo'));
 
 
 function App() {
   useEffect(() => {
-    document.title = "Welcomre to health care ";
+    document.title = "Welcome to Healthcare";
   }, []);
 
-  
-
   return (
-    <>
-      <div>
+    <div>
+     
+        <Navbar />
+        <HeroSection />
+        <FeaturesSection />
+        <TrustCompliance />
+        <DashboardDemo />
+        <Testimonials />
+        <Integrations />
+        <CTASection />
+        <UseCases />
+        <AppPromo />
+
       
-    <HeroSection/>
-    <FeaturesSection/>
-    <TrustCompliance/>
-    <DashboardDemo/>
-    <Testimonials/>
-    <Integrations/>
-    <CTASection/>
-   <UseCases/>
-   <AppPromo/>
-        </div>
-           </>
-  )
+    </div>
+  );
 }
 
-export default App
-
-
- 
-  
+export default App;
+const handleAnimationComplete = () => {
+  console.log('All letters have animated!');
+};
 

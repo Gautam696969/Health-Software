@@ -1,31 +1,33 @@
 import React from 'react';
 import './HeroSection.css';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const HeroSection = () => {
   return (
-    <section className="hero">
-      <div className="hero-overlay" />
-      <div className="hero-content">
-        <h1>Transforming Healthcare with AI Intelligence</h1>
+    <div className="hero-section">
+      <div className="hero-text">
+        <h1 className="text-3xl">
+          Transforming Healthcare <span className='
+          '></span>
+        </h1>
+
+
         <p>
-          Empower your practice with smarter diagnostics, predictive analytics, and personalized patient care.
+          Empower your practice with smarter diagnostics, predictive analytics,
+          and personalized patient care.
         </p>
         <div className="hero-buttons">
-          <button className="btn primary">Book a Demo</button>
-          <button className="btn secondary">See It in Action</button>
+          <button className="primary-btn">Book a Demo</button>
+          <button className="secondary-btn">See It in Action</button>
         </div>
       </div>
-      <div className="hero-animation">
-        {/* Place the animation file in the public folder */}
-        <DotLottieReact
-          src="/ai-Animation.json"
-          loop
-          autoplay
-          style={{ width: '100%', height: '100%' }}
-        />
+
+      <div className="hero-video-box">
+        <video autoPlay loop muted className="small-video">
+          <source src="/video/health.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
-    </section>
+    </div>
   );
 };
 

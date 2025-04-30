@@ -22,6 +22,23 @@
     padding: 2rem;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    animation: appear 3s linear;
+    animation-timeline: view();
+    animation-range: entry 50% cover 60%;
+  }
+  
+  @keyframes appear {
+    from {
+      opacity: 0;
+     clip-path: 100% 100% 0 0;
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  
   }
   
   .feature-card:hover {

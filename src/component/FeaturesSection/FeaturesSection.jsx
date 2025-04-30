@@ -27,6 +27,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
+    <marque>
     <section className="features-section">
       <h2 className="section-title">🧠 AI That Powers Better Healthcare</h2>
       <div className="features-grid">
@@ -39,6 +40,7 @@ const FeaturesSection = () => {
         ))}
       </div>
     </section>
+    </marque>
   );
 };
 
