@@ -3,8 +3,6 @@ import "./Navbar.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 
-
-
 export const Navbar = () => {
   const [showMenu, setshowmenu] = useState( false );
   const handeButtonToggle = () => {
@@ -15,11 +13,11 @@ export const Navbar = () => {
       <div className="container">
         <div className="grid navbar-grid">
           <div className="logo flex justify-center gap-4 item-center text-3xl">
-            <h1>Healthcare
+            <h1 className="healthhead text-blue-300">Healthcare
               
             </h1>
             <div className="">
-                <video autoPlay loop muted className="smallgif">
+                <video autoPlay loop muted className="smallgif text-blue-300" >
                   <source src="/video/healthvid.mp4" type="video/mp4" />
                 </video>
               </div>
