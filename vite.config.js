@@ -1,18 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
 
+// Replace 'voice-AI1' with your actual repo name
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
-  build: {
-    chunkSizeWarningLimit: 800,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom'],
-          'vendor-lottie': ['@lottiefiles/dotlottie-react'],
-        }
-      }
-    }
-  }
+  plugins: [react()],
+  base: '/Health-Software/' // important for GitHub Pages
 })
