@@ -1,7 +1,7 @@
 .hero-section {
   min-height: 100vh;
   /* background: linear-gradient(145deg, #e6f0ff 0%, #ffffff 100%); */
-  /* background-image: radial-gradient(circle at 10% 20%, rgb(239, 246, 255) 0%, rgb(219, 234, 254) 90%); */
+  background-image: radial-gradient(circle at 10% 20%, rgb(239, 246, 255) 0%, rgb(219, 234, 254) 90%);
   padding: 120px 40px;
   position: relative;
   overflow: hidden;

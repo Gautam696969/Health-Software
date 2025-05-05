@@ -7,13 +7,7 @@ export const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add('dark-mode');
-    } else {
-      document.body.classList.remove('dark-mode');
-    }
-  }, [isDarkMode]);
+  
 
   return (
     <header className="navbar-header">

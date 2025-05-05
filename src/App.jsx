@@ -14,6 +14,7 @@ const Integrations = lazy(() => import('./component/Integrations/Integrations'))
 const CTASection = lazy(() => import('./component/CTASection/CTASection'));
 const UseCases = lazy(() => import('./component/UseCases/UseCases'));
 const AppPromo = lazy(() => import('./component/AppPromo/AppPromo'));
+const Footer = lazy(()=> import('./component/Footer/Footer.jsx'))
 // const Animate = lazy(()=> import('./component/Animte/Animte.jsx'))
 
 function App() {

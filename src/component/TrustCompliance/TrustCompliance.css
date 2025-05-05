@@ -9,12 +9,14 @@
     animation: glowFade 2s ease-in forwards;
     animation-timeline: view(); /* Optional if using scroll-based animations */
     animation-range: entry 25% cover 50%;
+    z-index: 1;
   }
   
   @keyframes glowFade {
     from {
       opacity: 0;
-      filter: brightness(150%);
+    
+      filter: brightness(100%);
     }
     to {
       opacity: 1;

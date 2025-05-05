@@ -12,8 +12,8 @@ const AppPromo = () => {
   };
 
   return (
-    <section className="app-promo">
-      <div className="promo-text">
+    <section className="app-promo ">
+      <div className="promo-text z-1">
         <h2>📱 Monitor Patients On-the-Go</h2>
         <p>
           Stay connected with real-time patient data from anywhere. Our mobile app supports iOS and Android – giving you AI-powered insights in your pocket.

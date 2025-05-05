@@ -10,7 +10,7 @@ const HeroSection = () => {
   const [animationError, setAnimationError] = useState( false );
   const [animationData, setAnimationData] = useState( null );
   const [index, setIndex] = useState( 0 );
-  const rotatingWords = ['Re-Start', 'Re-Shape', 'Re-Define'];
+  const rotatingWords = ['Health-Care', 'Healing with Heart', 'Caring for Life'];
 
   const words = rotatingWords;
 
@@ -25,7 +25,7 @@ const HeroSection = () => {
 
 
   useEffect( () => {
-    fetch( 'https://assets10.lottiefiles.com/packages/lf20_hx7ddrx9.json' )  // Healthcare animation with doctor and medical symbols
+    fetch( 'https://assets10.lottiefiles.com/packages/lf20_hx7ddrx9.json' )
       .then( response => {
         if ( !response.ok ) throw new Error( 'Animation network error' );
         return response.json();
@@ -41,7 +41,38 @@ const HeroSection = () => {
       <CanvasDots />
       <div className="hero-text">
         <h1 className="animate-title">
-          Transforming <span className="text-gradient">Healthcare</span>
+          Transforming    <AnimatePresence mode="wait">
+    <motion.div
+      key={words[index]}
+      className="text-[#2f82ff] inline-flex justify-end"
+      style={{
+        transformStyle: 'preserve-3d',
+        transform: 'translateZ(100px)'
+      }}
+      initial={{ opacity: 0, rotateX: 90, rotateY: 0, rotateZ: 0 }}
+      animate={{
+        opacity: 1,
+        rotateX: 0,
+        rotateY: 0,
+        rotateZ: 0,
+        transition: {
+          duration: 0.6,
+          ease: [0.17, 0.67, 0.83, 0.67]
+        }
+      }}
+      exit={{
+        opacity: 0,
+        rotateX: -90,
+        rotateY: 0,
+        rotateZ: 0,
+        transition: {
+          duration: 0.4,
+          ease: [0.55, 0.085, 0.68, 0.53]
+        }
+      }}>
+      <span>{words[index]}</span>
+    </motion.div>
+  </AnimatePresence>
           <br />
           <span className="text-highlight">For The Future</span>
         </h1>
@@ -87,38 +118,7 @@ const HeroSection = () => {
           </div>
         )}
       </div>
-      <AnimatePresence mode="wait">
-    <motion.div
-      key={words[index]}
-      className="text-[#FF512F] inline-flex justify-end"
-      style={{
-        transformStyle: 'preserve-3d',
-        transform: 'translateZ(100px)'
-      }}
-      initial={{ opacity: 0, rotateX: 90, rotateY: 0, rotateZ: 0 }}
-      animate={{
-        opacity: 1,
-        rotateX: 0,
-        rotateY: 0,
-        rotateZ: 0,
-        transition: {
-          duration: 0.6,
-          ease: [0.17, 0.67, 0.83, 0.67]
-        }
-      }}
-      exit={{
-        opacity: 0,
-        rotateX: -90,
-        rotateY: 0,
-        rotateZ: 0,
-        transition: {
-          duration: 0.4,
-          ease: [0.55, 0.085, 0.68, 0.53]
-        }
-      }}>
-      <span>{words[index]}</span>
-    </motion.div>
-  </AnimatePresence>
+   
     </div>
   );
 };

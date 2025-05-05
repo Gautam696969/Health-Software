@@ -8,6 +8,7 @@
     padding: 5rem 2rem;
     background: linear-gradient(to bottom right, #f9fafb, #eff6ff);
     gap: 3rem;
+    
   }
   
   .promo-text {
@@ -17,7 +18,7 @@
   .promo-text h2 {
     font-size: 2.2rem;
     font-weight: 800;
-    color: #1e3a8a;
+    color: #6faacf;
     margin-bottom: 1rem;
   }
   
@@ -26,6 +27,7 @@
     color: #3e4d5f;
     margin-bottom: 1.5rem;
   }
+ 
   
   .features-list {
     list-style: none;
@@ -35,7 +37,7 @@
   
   .features-list li {
     font-size: 1rem;
-    color: #3e485a;
+    color: #737b89;
     margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
@@ -63,6 +65,7 @@
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     color: white;
+    background-color: skyblue;
   }
   
   .store-btn svg {
