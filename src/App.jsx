@@ -1,8 +1,6 @@
-import React, { lazy, useEffect } from 'react';
+import React, { lazy, useEffect, Suspense } from 'react';
 import './App.css';
-
-
-
+import { ThemeProvider } from './context/ThemeContext';
 
 // Lazy load components
 const Navbar = lazy(() => import('./component/Navbar/Navbar'));
@@ -16,28 +14,28 @@ const CTASection = lazy(() => import('./component/CTASection/CTASection'));
 const UseCases = lazy(() => import('./component/UseCases/UseCases'));
 const AppPromo = lazy(() => import('./component/AppPromo/AppPromo'));
 
-
 function App() {
   useEffect(() => {
     document.title = "Welcome to Healthcare";
   }, []);
 
   return (
-    <div>
-     
-        <Navbar />
-        <HeroSection />
-        <FeaturesSection />
-        <TrustCompliance />
-        <DashboardDemo />
-        <Testimonials />
-        <Integrations />
-        <CTASection />
-        <UseCases />
-        <AppPromo />
-
-      
-    </div>
+    <ThemeProvider>
+      <Suspense fallback={<div>Loading...</div>}>
+        <div>
+          <Navbar />
+          <HeroSection />
+          <FeaturesSection />
+          <TrustCompliance />
+          <DashboardDemo />
+          <Testimonials />
+          <Integrations />
+          <CTASection />
+          <UseCases />
+          <AppPromo />
+        </div>
+      </Suspense>
+    </ThemeProvider>
   );
 }
 

@@ -87,10 +87,21 @@
   
   .mock-chart {
     width: 100%;
-    height: 160px;
-    background: url('https://assets9.lottiefiles.com/packages/lf20_bpqriukc.json') center center/contain no-repeat;
-    background-color: #f0f4f8;
-    border-radius: 12px;
+    min-height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .animation-fallback {
+    width: 100%;
+    height: 200px;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: #6b7280;
+    font-size: 1.1rem;
   }
   
   .live-card{
@@ -108,4 +119,3 @@
   .ai-card {
     border-left: 6px solid #2196f3;
   }
-  

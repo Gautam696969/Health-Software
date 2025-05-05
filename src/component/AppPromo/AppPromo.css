@@ -23,7 +23,7 @@
   
   .promo-text p {
     font-size: 1.1rem;
-    color: #475569;
+    color: #3e4d5f;
     margin-bottom: 1.5rem;
   }
   
@@ -35,7 +35,7 @@
   
   .features-list li {
     font-size: 1rem;
-    color: #1e293b;
+    color: #3e485a;
     margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
@@ -56,11 +56,13 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    color: black;
   }
   
   .store-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    color: white;
   }
   
   .store-btn svg {
@@ -87,6 +89,16 @@
   
   .mobile-screen.second {
     margin-top: 10px;
+  }
+  
+  .placeholder {
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 0.875rem;
+    border: 2px dashed #e5e7eb;
   }
   
   /* Responsive */

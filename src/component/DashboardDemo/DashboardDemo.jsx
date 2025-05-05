@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './DashboardDemo.css';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+
 const DashboardDemo = () => {
+  const [animationError, setAnimationError] = useState(false);
+
+  useEffect(() => {
+    // Dynamically import Lottie
+    const script = document.createElement('script');
+    script.src = "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    }
+  }, []);
+
   return (
     <section className="dashboard-demo">
       <h2 className="dashboard-title">📈 4. Real-Time Dashboard Demo</h2>
@@ -23,12 +36,21 @@ const DashboardDemo = () => {
         {/* Risk Prediction Chart */}
         <div className="dashboard-card risk-card">
           <h3>📊 Risk Prediction</h3>
-          <DotLottieReact
-          src="/image/Animation - 1745499089153.json"  // Path to the Lottie JSON file in the public folder
-          loop={true}                      // Make the animation loop
-          autoplay={true}                  // Start the animation automatically
-          className="mock-chart"
-        />
+          {!animationError ? (
+            <lottie-player
+              src="https://assets2.lottiefiles.com/packages/lf20_xwmj0hsk.json"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+              style={{ width: '100%', height: '200px' }}
+              onError={() => setAnimationError(true)}
+            ></lottie-player>
+          ) : (
+            <div className="animation-fallback">
+              📊 Dashboard Visualization
+            </div>
+          )}
         </div>
 
         {/* Patient Alerts */}

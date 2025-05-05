@@ -1,43 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { GiHamburgerMenu } from "react-icons/gi";
-
+import { BsSun, BsMoon } from "react-icons/bs";
 
 export const Navbar = () => {
-  const [showMenu, setshowmenu] = useState( false );
-  const handeButtonToggle = () => {
-    setshowmenu( !showMenu )
-  }
-  return (
-    <header>
-      <div className="container">
-        <div className="grid navbar-grid">
-          <div className="logo flex justify-center gap-4 item-center text-3xl">
-            <h1 className="healthhead text-blue-300">Healthcare
-              
-            </h1>
-            <div className="">
-                <video autoPlay loop muted className="smallgif text-blue-300" >
-                  <source src="/video/healthvid.mp4" type="video/mp4" />
-                </video>
-              </div>
-          </div>
+  const [showMenu, setShowMenu] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-          <nav className={showMenu ? "menu-moblie" : "menu-web"}>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">End</a></li>
-            </ul>
-          </nav>
-          <div className="hambar"><button onclick={handeButtonToggle}><GiHamburgerMenu /></button></div>
-        </div>
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, [isDarkMode]);
+
+  return (
+    <header className="navbar-header">
+      <div className="navbar-content">
+        <h1 className="logo-text">Healthcare</h1>
+
+        <nav className={`nav-menu ${showMenu ? 'show' : ''}`}>
+          <ul className="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <button 
+            className="theme-toggle"
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            aria-label="Toggle theme"
+          >
+            {isDarkMode ? <BsSun /> : <BsMoon />}
+          </button>
+        </nav>
+
+        <button className="menu-toggle" onClick={() => setShowMenu(!showMenu)}>
+          <GiHamburgerMenu />
+        </button>
       </div>
     </header>
-
   );
 };
 
-<img src="" alt="" />
 export default Navbar;
