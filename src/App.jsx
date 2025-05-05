@@ -38,6 +38,7 @@ function App() {
           <CTASection />
           <UseCases />
           <AppPromo />
+          <Footer/>
           {/* <Animate/> */}
         </div>
       </Suspense>

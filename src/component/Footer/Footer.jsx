@@ -41,7 +41,7 @@ const Footer = () => {
           <h4>Contact Us</h4>
           <ul>
             <li>📍 123 Healthcare Ave</li>
-            <li>📞 +1 234 567 890</li>
+            <li>📞 +101 108 103 104</li>
             <li>✉️ info@healthcare.com</li>
           </ul>
         </div>
