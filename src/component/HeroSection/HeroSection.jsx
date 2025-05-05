@@ -1,16 +1,44 @@
 import React, { useState, useEffect } from 'react';
+import Lottie from 'lottie-react';
 import './HeroSection.css';
+import { AnimatePresence, motion } from 'framer-motion'
+import CanvasDots from '../../context/canvas';
+
 
 const HeroSection = () => {
-  const [videoError, setVideoError] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState( false );
+  const [animationError, setAnimationError] = useState( false );
+  const [animationData, setAnimationData] = useState( null );
+  const [index, setIndex] = useState( 0 );
+  const rotatingWords = ['Re-Start', 'Re-Shape', 'Re-Define'];
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+  const words = rotatingWords;
+
+  useEffect( () => {
+    const interval = setInterval( () => {
+      setIndex( ( prevIndex ) => ( prevIndex + 1 ) % words.length );
+    }, 3000 );
+
+    return () => clearInterval( interval );
+  }, [words.length] );
+ 
+
+
+  useEffect( () => {
+    fetch( 'https://assets10.lottiefiles.com/packages/lf20_hx7ddrx9.json' )  // Healthcare animation with doctor and medical symbols
+      .then( response => {
+        if ( !response.ok ) throw new Error( 'Animation network error' );
+        return response.json();
+      } )
+      .then( data => setAnimationData( data ) )
+      .catch( () => setAnimationError( true ) );
+
+    setIsVisible( true );
+  }, [] );
 
   return (
     <div className={`hero-section ${isVisible ? 'fade-in' : ''}`}>
+      <CanvasDots />
       <div className="hero-text">
         <h1 className="animate-title">
           Transforming <span className="text-gradient">Healthcare</span>
@@ -44,22 +72,53 @@ const HeroSection = () => {
       </div>
 
       <div className="hero-video-box">
-        {!videoError ? (
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            className="small-video"
-            onError={() => setVideoError(true)}
-          >
-            <source src="/video/health.mp4" type="video/mp4"/>
-            Your browser does not support the video tag.
-          </video>
+        {animationData && !animationError ? (
+          <Lottie
+            animationData={animationData}
+            loop={true}
+            autoplay={true}
+            className="lottie-animation"
+            onError={() => setAnimationError( true )}
+            style={{ width: '100%', height: '100%' }}
+          />
         ) : (
-          <div className="video-error">Video could not be loaded</div>
+          <div className="video-error">
+            {animationError ? "Animation could not be loaded" : "Loading..."}
+          </div>
         )}
       </div>
+      <AnimatePresence mode="wait">
+    <motion.div
+      key={words[index]}
+      className="text-[#FF512F] inline-flex justify-end"
+      style={{
+        transformStyle: 'preserve-3d',
+        transform: 'translateZ(100px)'
+      }}
+      initial={{ opacity: 0, rotateX: 90, rotateY: 0, rotateZ: 0 }}
+      animate={{
+        opacity: 1,
+        rotateX: 0,
+        rotateY: 0,
+        rotateZ: 0,
+        transition: {
+          duration: 0.6,
+          ease: [0.17, 0.67, 0.83, 0.67]
+        }
+      }}
+      exit={{
+        opacity: 0,
+        rotateX: -90,
+        rotateY: 0,
+        rotateZ: 0,
+        transition: {
+          duration: 0.4,
+          ease: [0.55, 0.085, 0.68, 0.53]
+        }
+      }}>
+      <span>{words[index]}</span>
+    </motion.div>
+  </AnimatePresence>
     </div>
   );
 };

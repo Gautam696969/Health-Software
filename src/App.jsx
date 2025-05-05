@@ -1,6 +1,7 @@
 import React, { lazy, useEffect, Suspense } from 'react';
 import './App.css';
 import { ThemeProvider } from './context/ThemeContext';
+// import CanvasDots from './context/canvas';
 
 // Lazy load components
 const Navbar = lazy(() => import('./component/Navbar/Navbar'));
@@ -13,6 +14,7 @@ const Integrations = lazy(() => import('./component/Integrations/Integrations'))
 const CTASection = lazy(() => import('./component/CTASection/CTASection'));
 const UseCases = lazy(() => import('./component/UseCases/UseCases'));
 const AppPromo = lazy(() => import('./component/AppPromo/AppPromo'));
+// const Animate = lazy(()=> import('./component/Animte/Animte.jsx'))
 
 function App() {
   useEffect(() => {
@@ -20,6 +22,8 @@ function App() {
   }, []);
 
   return (
+    <div className='relative '>
+      {/* <CanvasDots /> */}
     <ThemeProvider>
       <Suspense fallback={<div>Loading...</div>}>
         <div>
@@ -33,9 +37,12 @@ function App() {
           <CTASection />
           <UseCases />
           <AppPromo />
+          {/* <Animate/> */}
         </div>
       </Suspense>
     </ThemeProvider>
+    </div>
+
   );
 }
 
