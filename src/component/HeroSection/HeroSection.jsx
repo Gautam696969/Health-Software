@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Lottie from 'lottie-react';
 import './HeroSection.css';
-import { AnimatePresence, motion } from 'framer-motion'
-import CanvasDots from '../../context/canvas';
-
+import { AnimatePresence, motion } from 'framer-motion';
+import CanvasDots from '../../context/canvas.jsx';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState( false );
@@ -21,8 +20,6 @@ const HeroSection = () => {
 
     return () => clearInterval( interval );
   }, [words.length] );
- 
-
 
   useEffect( () => {
     fetch( 'https://assets10.lottiefiles.com/packages/lf20_hx7ddrx9.json' )
@@ -42,37 +39,37 @@ const HeroSection = () => {
       <div className="hero-text">
         <h1 className="animate-title">
           Transforming    <AnimatePresence mode="wait">
-    <motion.div
-      key={words[index]}
-      className="text-[#2f82ff] inline-flex justify-end"
-      style={{
-        transformStyle: 'preserve-3d',
-        transform: 'translateZ(100px)'
-      }}
-      initial={{ opacity: 0, rotateX: 90, rotateY: 0, rotateZ: 0 }}
-      animate={{
-        opacity: 1,
-        rotateX: 0,
-        rotateY: 0,
-        rotateZ: 0,
-        transition: {
-          duration: 0.6,
-          ease: [0.17, 0.67, 0.83, 0.67]
-        }
-      }}
-      exit={{
-        opacity: 0,
-        rotateX: -90,
-        rotateY: 0,
-        rotateZ: 0,
-        transition: {
-          duration: 0.4,
-          ease: [0.55, 0.085, 0.68, 0.53]
-        }
-      }}>
-      <span>{words[index]}</span>
-    </motion.div>
-  </AnimatePresence>
+            <motion.div
+              key={words[index]}
+              className="text-[#2f82ff] inline-flex justify-end"
+              style={{
+                transformStyle: 'preserve-3d',
+                transform: 'translateZ(100px)'
+              }}
+              initial={{ opacity: 0, rotateX: 90, rotateY: 0, rotateZ: 0 }}
+              animate={{
+                opacity: 1,
+                rotateX: 0,
+                rotateY: 0,
+                rotateZ: 0,
+                transition: {
+                  duration: 0.6,
+                  ease: [0.17, 0.67, 0.83, 0.67]
+                }
+              }}
+              exit={{
+                opacity: 0,
+                rotateX: -90,
+                rotateY: 0,
+                rotateZ: 0,
+                transition: {
+                  duration: 0.4,
+                  ease: [0.55, 0.085, 0.68, 0.53]
+                }
+              }}>
+              <span>{words[index]}</span>
+            </motion.div>
+          </AnimatePresence>
           <br />
           <span className="text-highlight">For The Future</span>
         </h1>
@@ -118,7 +115,7 @@ const HeroSection = () => {
           </div>
         )}
       </div>
-   
+
     </div>
   );
 };
